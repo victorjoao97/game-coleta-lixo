@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cfgagb8gdoqr4"]
+
+[ext_resource type="PackedScene" uid="uid://bpwu08u5ymgbo" path="res://scenes/veiculo.tscn" id="1_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://ctem6ihhjwbla" path="res://scenes/mapa.tscn" id="1_sugp2"]
+
+[node name="Main" type="Node2D" unique_id=1458011940]
+
+[node name="Mapa" parent="." unique_id=357231276 instance=ExtResource("1_sugp2")]
+
+[node name="Veiculo" parent="." unique_id=1220391835 instance=ExtResource("1_0wfyh")]
+position = Vector2(36, 86)
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=64005363]
+position = Vector2(151, 93)
+rotation = -3.1415925
+scale = Vector2(258.57397, -1319.5336)
+zoom = Vector2(3, 3)

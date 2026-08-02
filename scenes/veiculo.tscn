@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://bpwu08u5ymgbo"]
+
+[ext_resource type="Script" uid="uid://b37ll8spmvif2" path="res://scripts/veiculo.gd" id="1_l8o5i"]
+[ext_resource type="Texture2D" uid="uid://cd1ikkfgdwf0n" path="res://assets/cars/truckdark.png" id="2_l8o5i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xwnf"]
+size = Vector2(36, 20)
+
+[node name="Caminhão" type="Node2D" unique_id=1220391835]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=694431089]
+collision_layer = 2
+script = ExtResource("1_l8o5i")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=647790688]
+texture = ExtResource("2_l8o5i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1905111370]
+shape = SubResource("RectangleShape2D_1xwnf")
