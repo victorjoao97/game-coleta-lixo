@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://jetk3x0us5ga"]
+
+[ext_resource type="Texture2D" uid="uid://lv2isguixbbx" path="res://assets/lixos/tile_0279.png" id="1_1bnrr"]
+[ext_resource type="Script" uid="uid://iwem6t10dwl3" path="res://scripts/lixo.gd" id="1_4nx07"]
+[ext_resource type="Texture2D" uid="uid://cnaa36wvv42bk" path="res://assets/lixos/tile_0280.png" id="2_4nx07"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1xwnf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1bnrr")
+}],
+"loop": 1,
+"name": &"cheio",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4nx07")
+}],
+"loop": 1,
+"name": &"vazio",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1xwnf"]
+size = Vector2(6, 9)
+
+[node name="Lixo" type="Area2D" unique_id=1550604860 groups=["lixo"]]
+scale = Vector2(2, 2)
+collision_layer = 2
+script = ExtResource("1_4nx07")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=505711786]
+sprite_frames = SubResource("SpriteFrames_1xwnf")
+animation = &"cheio"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=100332047]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_1xwnf")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
