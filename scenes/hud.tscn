@@ -1,6 +1,26 @@
 [gd_scene format=3 uid="uid://bbnh3ah0vc1os"]
 
 [ext_resource type="Script" uid="uid://gwo0w57wru7p" path="res://scripts/hud.gd" id="1_ahhtf"]
+[ext_resource type="Script" uid="uid://b723fe8k26id1" path="res://scripts/contador_fim_jogo.gd" id="2_5pdws"]
+[ext_resource type="Texture2D" uid="uid://d3t2vjyeugn8j" path="res://assets/sandclock_V_1_1/1.png" id="2_047uy"]
+[ext_resource type="StyleBox" uid="uid://bmkeg6thlcrwd" path="res://resources/button_normal_style_box.tres" id="2_hd3ao"]
+[ext_resource type="Texture2D" uid="uid://471qunlu0eea" path="res://assets/sandclock_V_1_1/2.png" id="3_5pdws"]
+[ext_resource type="Texture2D" uid="uid://dr82bbq2ynmpe" path="res://assets/sandclock_V_1_1/3.png" id="4_hd3ao"]
+[ext_resource type="Texture2D" uid="uid://2i0co27h0ttk" path="res://assets/sandclock_V_1_1/4.png" id="5_0i1j5"]
+[ext_resource type="Texture2D" uid="uid://cefgjvopb6f08" path="res://assets/sandclock_V_1_1/5.png" id="6_mphia"]
+
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_m13ap"]
+frames = 5
+frame_0/texture = ExtResource("2_047uy")
+frame_0/duration = 0.1
+frame_1/texture = ExtResource("3_5pdws")
+frame_1/duration = 0.1
+frame_2/texture = ExtResource("4_hd3ao")
+frame_2/duration = 0.1
+frame_3/texture = ExtResource("5_0i1j5")
+frame_3/duration = 0.1
+frame_4/texture = ExtResource("6_mphia")
+frame_4/duration = 0.1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo0fn"]
 bg_color = Color(6.208867e-06, 0.70774186, 0.5044518, 1)
@@ -18,26 +38,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ahhtf")
 
-[node name="Pontuacao" type="Label" parent="." unique_id=232756287]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -38.0
-offset_top = -109.0
-offset_right = 39.0
-offset_bottom = -86.0
-grow_horizontal = 2
-grow_vertical = 0
-size_flags_horizontal = 4
-text = "Progresso"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PanelGanhou" type="Panel" parent="." unique_id=826365567]
-visible = false
+[node name="FaseConcluidaPanel" type="Panel" parent="." unique_id=826365567]
+z_index = 2
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,33 +47,130 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Ganhou" type="Label" parent="PanelGanhou" unique_id=1350778499]
+[node name="PerdeuContainer" type="VBoxContainer" parent="FaseConcluidaPanel" unique_id=1611788679]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -56.5
-offset_top = -11.5
-offset_right = 56.5
-offset_bottom = 11.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Perdeu" type="Label" parent="FaseConcluidaPanel/PerdeuContainer" unique_id=1851580634]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Você perdeu! :("
+
+[node name="Label" type="Label" parent="FaseConcluidaPanel/PerdeuContainer" unique_id=877577238]
+layout_mode = 2
+text = "Tentar novamente?"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="FaseConcluidaPanel/PerdeuContainer" unique_id=1762311518]
+layout_mode = 2
+theme_override_constants/separation = 20
+alignment = 1
+
+[node name="TentarNovamente" type="Button" parent="FaseConcluidaPanel/PerdeuContainer/HBoxContainer" unique_id=149523201]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
+theme_override_styles/normal = ExtResource("2_hd3ao")
+text = "Sim"
+
+[node name="Sair" type="Button" parent="FaseConcluidaPanel/PerdeuContainer/HBoxContainer" unique_id=2137390524]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
+theme_override_styles/normal = ExtResource("2_hd3ao")
+text = "Não"
+
+[node name="GanhouContainer" type="VBoxContainer" parent="FaseConcluidaPanel" unique_id=714119718]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ganhou" type="Label" parent="FaseConcluidaPanel/GanhouContainer" unique_id=682739878]
+layout_mode = 2
 size_flags_horizontal = 4
 text = "Você ganhou!!!"
 
-[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1855641189]
+[node name="ProximaFase" type="Button" parent="FaseConcluidaPanel/GanhouContainer" unique_id=328744019]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
+theme_override_styles/normal = ExtResource("2_hd3ao")
+text = "Próxima fase"
+
+[node name="ContadorFimJogo" type="Timer" parent="." unique_id=477831802]
+wait_time = 0.001
+one_shot = true
+script = ExtResource("2_5pdws")
+
+[node name="CronometroContainer" type="MarginContainer" parent="." unique_id=846764678]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -152.0
+offset_right = 99.0
+offset_bottom = -20.0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CronometroContainer" unique_id=237864143]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CronometroContainer/VBoxContainer" unique_id=1610010525]
+layout_mode = 2
+texture = SubResource("AnimatedTexture_m13ap")
+expand_mode = 4
+
+[node name="LabelContador" type="Label" parent="CronometroContainer/VBoxContainer" unique_id=1389873547]
+layout_mode = 2
+text = "Tempo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressoContainer" type="MarginContainer" parent="." unique_id=1187031387]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -201.5
-offset_top = -53.0
-offset_right = 201.5
-offset_bottom = -11.0
+offset_left = -78.0
+offset_top = -97.0
+offset_right = 77.5
+offset_bottom = -21.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ProgressoContainer" unique_id=1250434311]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="Pontuacao" type="Label" parent="ProgressoContainer/VBoxContainer" unique_id=232756287]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Progresso"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="ProgressoContainer/VBoxContainer" unique_id=1855641189]
+layout_mode = 2
 theme_override_styles/fill = SubResource("StyleBoxFlat_oo0fn")
+
+[connection signal="pressed" from="FaseConcluidaPanel/PerdeuContainer/HBoxContainer/TentarNovamente" to="." method="_on_tentar_novamente_pressed"]
+[connection signal="pressed" from="FaseConcluidaPanel/PerdeuContainer/HBoxContainer/Sair" to="." method="_on_sair_pressed"]
+[connection signal="timeout" from="ContadorFimJogo" to="." method="_on_contador_fim_jogo_timeout"]

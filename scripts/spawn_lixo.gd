@@ -9,7 +9,7 @@ func setup(pontos: Array[Marker2D]):
 	spawn_pontos = pontos
 
 func spawn(quantidade):
-	for i in clamp(quantidade, 0, spawn_pontos.size()):
+	for i in range(quantidade):
 		var ponto = spawn_pontos.pick_random()
 
 		var lixo = cena_lixo.instantiate()

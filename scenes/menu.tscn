@@ -1,0 +1,95 @@
+[gd_scene format=3 uid="uid://chnjpycgsn5nh"]
+
+[ext_resource type="Script" uid="uid://dp664gw7c0s3u" path="res://scripts/menu.gd" id="1_vjb58"]
+[ext_resource type="Texture2D" uid="uid://diqs7kgqwjgnu" path="res://assets/backgrounds/gerado-chat-gpt.png" id="2_vjb58"]
+[ext_resource type="StyleBox" uid="uid://bmkeg6thlcrwd" path="res://resources/button_normal_style_box.tres" id="3_con2f"]
+[ext_resource type="StyleBox" uid="uid://bqvsabeweowsj" path="res://resources/button_hover_style_box.tres" id="4_mhnvy"]
+
+[node name="Menu" type="Control" unique_id=1619557374]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vjb58")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=340270562]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_vjb58")
+expand_mode = 2
+
+[node name="Panel" type="Panel" parent="." unique_id=1304049041]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Panel" unique_id=1999325588]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -118.125
+offset_top = -68.5
+offset_right = 118.125
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel/CenterContainer" unique_id=810452914]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 1
+
+[node name="Iniciar" type="Button" parent="Panel/CenterContainer/VBoxContainer" unique_id=468357958]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.14406285, 0.14406237, 0.14406255, 1)
+theme_override_colors/font_hover_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
+theme_override_styles/normal = ExtResource("3_con2f")
+theme_override_styles/hover = ExtResource("4_mhnvy")
+text = "Iniciar"
+
+[node name="Configuracoes" type="Button" parent="Panel/CenterContainer/VBoxContainer" unique_id=1104266342]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
+theme_override_colors/font_hover_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
+theme_override_constants/align_to_largest_stylebox = 1
+theme_override_styles/normal = ExtResource("3_con2f")
+theme_override_styles/hover = ExtResource("4_mhnvy")
+text = "Configurações"
+
+[node name="Sair" type="Button" parent="Panel/CenterContainer/VBoxContainer" unique_id=1133396052]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
+theme_override_colors/font_hover_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
+theme_override_styles/normal = ExtResource("3_con2f")
+theme_override_styles/hover = ExtResource("4_mhnvy")
+text = "Sair"
+
+[node name="Label" type="Label" parent="." unique_id=1832375387]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -169.5
+offset_right = 169.5
+offset_bottom = 256.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 50
+text = "Coleta de Lixo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Iniciar" to="." method="_on_iniciar_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Configuracoes" to="." method="_on_configuracoes_pressed"]
+[connection signal="pressed" from="Panel/CenterContainer/VBoxContainer/Sair" to="." method="_on_sair_pressed"]
