@@ -2,6 +2,13 @@
 
 [ext_resource type="Script" uid="uid://gwo0w57wru7p" path="res://scripts/hud.gd" id="1_ahhtf"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oo0fn"]
+bg_color = Color(6.208867e-06, 0.70774186, 0.5044518, 1)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
 [node name="HUD" type="Control" unique_id=2064372478]
 layout_mode = 3
 anchors_preset = 15
@@ -12,13 +19,22 @@ grow_vertical = 2
 script = ExtResource("1_ahhtf")
 
 [node name="Pontuacao" type="Label" parent="." unique_id=232756287]
-layout_mode = 0
-offset_left = 1155.0
-offset_top = 29.0
-offset_right = 1197.0
-offset_bottom = 52.0
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -38.0
+offset_top = -109.0
+offset_right = 39.0
+offset_bottom = -86.0
+grow_horizontal = 2
+grow_vertical = 0
 size_flags_horizontal = 4
-text = "Teste"
+text = "Progresso"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="PanelGanhou" type="Panel" parent="." unique_id=826365567]
 visible = false
@@ -44,3 +60,18 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 text = "Você ganhou!!!"
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=1855641189]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -201.5
+offset_top = -53.0
+offset_right = 201.5
+offset_bottom = -11.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/fill = SubResource("StyleBoxFlat_oo0fn")

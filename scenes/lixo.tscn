@@ -1,39 +1,61 @@
 [gd_scene format=3 uid="uid://jetk3x0us5ga"]
 
-[ext_resource type="Texture2D" uid="uid://lv2isguixbbx" path="res://assets/lixos/tile_0279.png" id="1_1bnrr"]
 [ext_resource type="Script" uid="uid://iwem6t10dwl3" path="res://scripts/lixo.gd" id="1_4nx07"]
 [ext_resource type="Texture2D" uid="uid://cnaa36wvv42bk" path="res://assets/lixos/tile_0280.png" id="2_4nx07"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_1xwnf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_1bnrr")
-}],
-"loop": 1,
-"name": &"cheio",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("2_4nx07")
-}],
-"loop": 1,
-"name": &"vazio",
-"speed": 5.0
-}]
+[sub_resource type="Animation" id="Animation_1bnrr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_4nx07"]
+resource_name = "movendo"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.20943951023931956, 0.20943951023931956]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lagc2"]
+_data = {
+&"RESET": SubResource("Animation_1bnrr"),
+&"movendo": SubResource("Animation_4nx07")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1xwnf"]
 size = Vector2(6, 9)
 
 [node name="Lixo" type="Area2D" unique_id=1550604860 groups=["lixo"]]
-scale = Vector2(2, 2)
 collision_layer = 2
 script = ExtResource("1_4nx07")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=505711786]
-sprite_frames = SubResource("SpriteFrames_1xwnf")
-animation = &"cheio"
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1210204594]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("2_4nx07")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite2D" unique_id=1686581763]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_lagc2")
+autoplay = &"movendo"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=100332047]
 position = Vector2(0, 0.5)

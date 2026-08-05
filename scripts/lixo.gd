@@ -1,7 +1,7 @@
 extends Area2D
-signal coletado
+class_name Lixo
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("caminhao"):
-		coletado.emit()
+		EventHub.emit_lixo_coletado()
 		queue_free()

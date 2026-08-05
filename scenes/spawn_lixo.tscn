@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://ds8kbjkyo155h"]
+
+[ext_resource type="Script" uid="uid://cxck1rjtf7sus" path="res://scripts/spawn_lixo.gd" id="1_btwbs"]
+
+[node name="SpawnLixo" type="Node2D" unique_id=1436331560]
+script = ExtResource("1_btwbs")
