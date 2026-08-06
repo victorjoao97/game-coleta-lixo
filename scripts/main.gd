@@ -1,5 +1,4 @@
 extends Node2D
-var pontos := 0
 @onready var spawner_lixo: SpawnLixo = $SpawnLixo
 @onready var pontos_spawn_lixo: Array[Marker2D] = []
 @onready var camera_2d: Camera2D = $Caminhao/Camera2D
@@ -7,7 +6,9 @@ var pontos := 0
 
 @export var timeout_inicio := 3
 @export var tempo_limite := 30.0
+
 var objetivo = 0
+var pontos := 0
 
 func _ready() -> void:
 	ativar_caminhao(false)
@@ -17,6 +18,7 @@ func _ready() -> void:
 	await get_tree().create_timer(1.0).timeout
 	var tween = create_tween()
 	tween.tween_property(camera_2d, "zoom", Vector2(5, 5), timeout_inicio)
+	EventHub.emit_iniciar_countdown(timeout_inicio)
 	await get_tree().create_timer(timeout_inicio).timeout
 	ativar_caminhao(true)
 	
@@ -39,6 +41,7 @@ func _on_lixo_coletado():
 	atualizar_pontos()
 
 func atualizar_pontos():
+	print("Pontos: %d Objetivo: %d" % [pontos, objetivo])
 	if (pontos == objetivo):
 		EventHub.emit_concluir_fase()
 		ativar_caminhao(false)

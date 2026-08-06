@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dp664gw7c0s3u" path="res://scripts/menu.gd" id="1_vjb58"]
 [ext_resource type="Texture2D" uid="uid://diqs7kgqwjgnu" path="res://assets/backgrounds/gerado-chat-gpt.png" id="2_vjb58"]
 [ext_resource type="StyleBox" uid="uid://bmkeg6thlcrwd" path="res://resources/button_normal_style_box.tres" id="3_con2f"]
+[ext_resource type="StyleBox" uid="uid://60y8fmued8d1" path="res://resources/button_pressed_style_box.tres" id="4_4ytvr"]
 [ext_resource type="StyleBox" uid="uid://bqvsabeweowsj" path="res://resources/button_hover_style_box.tres" id="4_mhnvy"]
 
 [node name="Menu" type="Control" unique_id=1619557374]
@@ -54,25 +55,31 @@ alignment = 1
 [node name="Iniciar" type="Button" parent="Panel/CenterContainer/VBoxContainer" unique_id=468357958]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.14406285, 0.14406237, 0.14406255, 1)
+theme_override_colors/font_pressed_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
 theme_override_colors/font_hover_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
 theme_override_styles/normal = ExtResource("3_con2f")
+theme_override_styles/pressed = ExtResource("4_4ytvr")
 theme_override_styles/hover = ExtResource("4_mhnvy")
 text = "Iniciar"
 
 [node name="Configuracoes" type="Button" parent="Panel/CenterContainer/VBoxContainer" unique_id=1104266342]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
+theme_override_colors/font_pressed_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
 theme_override_colors/font_hover_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
 theme_override_constants/align_to_largest_stylebox = 1
 theme_override_styles/normal = ExtResource("3_con2f")
+theme_override_styles/pressed = ExtResource("4_4ytvr")
 theme_override_styles/hover = ExtResource("4_mhnvy")
 text = "Configurações"
 
 [node name="Sair" type="Button" parent="Panel/CenterContainer/VBoxContainer" unique_id=1133396052]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
+theme_override_colors/font_pressed_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
 theme_override_colors/font_hover_color = Color(0.14509805, 0.14509805, 0.14509805, 1)
 theme_override_styles/normal = ExtResource("3_con2f")
+theme_override_styles/pressed = ExtResource("4_4ytvr")
 theme_override_styles/hover = ExtResource("4_mhnvy")
 text = "Sair"
 
@@ -85,6 +92,7 @@ offset_left = -169.5
 offset_right = 169.5
 offset_bottom = 256.0
 grow_horizontal = 2
+theme_override_constants/outline_size = 10
 theme_override_font_sizes/font_size = 50
 text = "Coleta de Lixo"
 horizontal_alignment = 1

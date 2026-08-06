@@ -1,0 +1,7 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://60y8fmued8d1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gf2k8"]
+load_path = "res://.godot/imported/UI_Flat_Button01a_2.png-62056e6b1f9d67d3177aa4a629b49fb7.ctex"
+
+[resource]
+texture = SubResource("CompressedTexture2D_gf2k8")

@@ -1,10 +1,10 @@
 extends Timer
 @onready var label_contador: Label = $"../CronometroContainer/VBoxContainer/LabelContador"
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var tempo = int(ceil(time_left))
 
-	var minutos = tempo / 60
+	var minutos = tempo / 60.0
 	var segundos = tempo % 60
 
 	label_contador.text = "%02d:%02d" % [minutos, segundos]
