@@ -76,6 +76,9 @@ cena_lixo = ExtResource("6_tefeu")
 [node name="Marker2D" type="Marker2D" parent="PontosSpawnLixo" unique_id=1919686611]
 position = Vector2(217, 74)
 
+[node name="Marker2D4" type="Marker2D" parent="PontosSpawnLixo" unique_id=200768835]
+position = Vector2(120, 45)
+
 [node name="Marker2D2" type="Marker2D" parent="PontosSpawnLixo" unique_id=268872319]
 position = Vector2(217, 210)
 

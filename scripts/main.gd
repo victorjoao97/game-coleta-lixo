@@ -31,7 +31,6 @@ func spawn_lixo():
 		pontos_spawn_lixo.append(ponto as Marker2D)
 		objetivo += 1
 	spawner_lixo.setup(pontos_spawn_lixo)
-	spawner_lixo.spawn(objetivo)
 
 	EventHub.lixo_coletado.connect(_on_lixo_coletado)
 	EventHub.emit_atualizar_objetivo(objetivo)

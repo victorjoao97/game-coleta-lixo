@@ -7,9 +7,7 @@ var spawn_pontos: Array[Marker2D] = []
 
 func setup(pontos: Array[Marker2D]):
 	spawn_pontos = pontos
-
-func spawn(quantidade):
-	for i in range(quantidade):
+	for i in spawn_pontos:
 		var ponto = encontra_ponto_disponivel()
 		var lixo = cena_lixo.instantiate()
 		lixo.position = ponto.global_position
